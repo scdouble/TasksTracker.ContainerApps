@@ -1,0 +1,20 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: statestore
+spec:
+  type: state.azure.cosmosdb
+  version: v1
+  metadata:
+    - name: url
+      value: https://taskstracker-state-store-redflower.documents.azure.com:443/
+    - name: masterKey
+      value: "k82J9tmpRASDbLJNdUTW5Tyya0Z6WyxoIPBK2w81T2FgAsXd4HerfT0t6I91MaTwTJXQMmG4U3lVACDb1v3hFg=="
+    - name: database
+      value: tasksmanagerdb
+    - name: collection
+      value: taskscollection
+    - name: keyPrefix
+      value: TaskId
+scopes:
+  - tasksmanager-backend-api
